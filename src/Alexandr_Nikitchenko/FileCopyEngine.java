@@ -93,7 +93,7 @@ public class FileCopyEngine implements ActionListener {
                 fileOutputStream.write(buffer, 0, bufferSize);
 
                 // Как только будет завершено копирование, выдать сообщение в поле inform
-                parent.inform.setText("Копирование завернено!" );
+                parent.inform.setText("Копирование завершено!" );
             }
 
             // Закрыть потоки
