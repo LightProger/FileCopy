@@ -7,8 +7,9 @@ import java.io.*;
 /**
  * Created by Александр on 18.02.2017.
  */
-public class FileCopyEngine implements ActionListener {
+public class FileCopyEngine extends Exception implements ActionListener {
     FileCopy parent;
+    int bufferSize;
 
     FileCopyEngine(FileCopy parent) {
         this.parent = parent;
@@ -33,7 +34,8 @@ public class FileCopyEngine implements ActionListener {
         if (theButton == parent.copyButton) {
             try {
                 buttonCopy();
-            } catch (IOException e1) {
+
+            } catch (Exception e1) {
                 JOptionPane.showMessageDialog(null,"Ошибка копирования!",
                         "Сообщение об ошибке", JOptionPane.ERROR_MESSAGE);
             }
@@ -45,7 +47,7 @@ public class FileCopyEngine implements ActionListener {
 
             // Создание окна для выбора файла
             parent.fileChooserFrom = new JFileChooser();
-            int ret = parent.fileChooserFrom.showDialog(null, "Выбрать файл...");
+            int ret = parent.fileChooserFrom.showDialog(null, "Выбрать файл");
 
             // Если файл выбран, то добавить путь к в файлу в поле edit1
             if (ret == JFileChooser.APPROVE_OPTION) {
@@ -61,8 +63,7 @@ public class FileCopyEngine implements ActionListener {
              // Создание окна для выбора места для копирования
             parent.fileChooserTo = new JFileChooser();
             parent.fileChooserTo.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            parent.fileChooserTo.setAcceptAllFileFilterUsed(false);
-             int ret1 = parent.fileChooserTo.showDialog(null, "Выбрать папку...");
+            int ret1 = parent.fileChooserTo.showDialog(null, "Выбрать папку");
 
             // Если указано место для копирования, то прописать путь к директории, в поле edit2
             if (ret1 == JFileChooser.APPROVE_OPTION) {
@@ -86,18 +87,21 @@ public class FileCopyEngine implements ActionListener {
             FileOutputStream fileOutputStream = new FileOutputStream(destinationFile);
 
             // Пока считываемый файл больше ноля, записываем новый файл: 0 - конец файла
-            int bufferSize;
             byte[] buffer = new byte[1024];
             while ((bufferSize = fileInputStream.read(buffer)) > 0) {
                 fileOutputStream.write(buffer, 0, bufferSize);
-
-                // Как только будет завершено копирование, выдать сообщение в поле inform
-                parent.inform.setText("Копирование завершено!" );
             }
 
             // Закрыть потоки
             fileInputStream.close();
             fileOutputStream.close();
+
+
+            // Как только будет завершено копирование, выдать сообщение в поле inform и обнулить поля edit1 и edit2
+            parent.edit1.setText(null);
+            parent.edit2.setText(null);
+            parent.inform.setText("Копирование завершено!" );
+
 
         }
 }

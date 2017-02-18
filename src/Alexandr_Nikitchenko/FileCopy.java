@@ -15,7 +15,23 @@ public class FileCopy extends JFrame {
     Font fontButton;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+
+        // Локализация компонентов окна JFileChooser
+        UIManager.put(
+                "FileChooser.saveButtonText", "Сохранить");
+        UIManager.put(
+                "FileChooser.cancelButtonText", "Отмена");
+        UIManager.put(
+                "FileChooser.fileNameLabelText", "Наименование файла");
+        UIManager.put(
+                "FileChooser.filesOfTypeLabelText", "Типы файлов");
+        UIManager.put(
+                "FileChooser.lookInLabelText", "Директория");
+        UIManager.put(
+                "FileChooser.saveInLabelText", "Сохранить в директории");
+        UIManager.put(
+                "FileChooser.folderNameLabelText", "Путь директории");
 
         // Ссылка на конструктор окна
 	    new FileCopy();
@@ -26,7 +42,7 @@ public class FileCopy extends JFrame {
         super("Копирование файлов");
 
         // Размер окна
-            setSize(400, 190);
+            setSize(400, 185);
 
             // Цвет окна
             setBackground(Color.GRAY);
@@ -54,8 +70,8 @@ public class FileCopy extends JFrame {
             north.add(edit1);
 
             // Кнопка
-            browse1 = new JButton("Обзор");
-            fontButton = new Font(Font.MONOSPACED, Font.BOLD, 15);
+            browse1 = new JButton("<html><b><font color=blue>Обзор</font></b></html>");
+            fontButton = new Font(Font.SANS_SERIF, Font.BOLD, 15);
             browse1.setFont(fontButton);
             north.add(browse1);
 
@@ -64,7 +80,7 @@ public class FileCopy extends JFrame {
             center.setBorder(new EmptyBorder(5,5,5,5));
 
             // Создаем текстовое поле, поле ввода и кнопку browse1
-            copyTo = new JLabel("<html><p> Копировать в: ", SwingConstants.CENTER);
+            copyTo = new JLabel("<html><p>Копировать в: ", SwingConstants.CENTER);
             center.add(copyTo);
 
             // Поле ввода
@@ -73,8 +89,8 @@ public class FileCopy extends JFrame {
             center.add(edit2);
 
             // Кнопка
-            browse2 = new JButton("Обзор");
-            fontButton = new Font(Font.MONOSPACED, Font.BOLD, 15);
+            browse2 = new JButton("<html><b><font color=blue>Обзор</font></b></html>");
+            fontButton = new Font(Font.SANS_SERIF, Font.BOLD, 15);
             browse2.setFont(fontButton);
             center.add(browse2);
 
@@ -88,8 +104,8 @@ public class FileCopy extends JFrame {
 
 
             // Кнопка
-            copyButton = new JButton("Копировать");
-            fontButton = new Font(Font.MONOSPACED, Font.BOLD, 15);
+            copyButton = new JButton("<html><b><font color=blue>Копировать</font></b></html>");
+            fontButton = new Font(Font.SANS_SERIF, Font.BOLD, 15);
             copyButton.setFont(fontButton);
             south.add(copyButton);
 
