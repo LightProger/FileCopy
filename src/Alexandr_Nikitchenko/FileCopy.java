@@ -26,7 +26,7 @@ public class FileCopy extends JFrame {
         super("Копирование файлов");
 
         // Размер окна
-            setSize(400, 220);
+            setSize(400, 190);
 
             // Цвет окна
             setBackground(Color.GRAY);
@@ -42,7 +42,7 @@ public class FileCopy extends JFrame {
 
             // Создаем северную панель контента
             north = new JPanel(new GridLayout(1,3, 5, 5));
-            north.setBorder(new EmptyBorder(10,10,10,10));
+            north.setBorder(new EmptyBorder(5,5,5,5));
 
             // Создаем текстовое поле, поле ввода и кнопку browse1
             copyFrom = new JLabel("<html><p> Копировать из: ", SwingConstants.CENTER);
@@ -61,7 +61,7 @@ public class FileCopy extends JFrame {
 
             // Создаем центральную панель контента
             center = new JPanel(new GridLayout(1,3, 5, 5));
-            center.setBorder(new EmptyBorder(10,10,10,10));
+            center.setBorder(new EmptyBorder(5,5,5,5));
 
             // Создаем текстовое поле, поле ввода и кнопку browse1
             copyTo = new JLabel("<html><p> Копировать в: ", SwingConstants.CENTER);
@@ -80,7 +80,7 @@ public class FileCopy extends JFrame {
 
             // Создаем южную панель контента
             south = new JPanel(new GridLayout(2,1, 5, 5));
-            south.setBorder(new EmptyBorder(10,10,10,10));
+            south.setBorder(new EmptyBorder(5,5,5,5));
 
             // Поле информации
             inform = new JLabel("<html><p> ", SwingConstants.CENTER);
