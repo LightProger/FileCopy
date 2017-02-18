@@ -62,8 +62,7 @@ public class FileCopyEngine implements ActionListener {
             parent.fileChooserTo = new JFileChooser();
             parent.fileChooserTo.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             parent.fileChooserTo.setAcceptAllFileFilterUsed(false);
-
-            int ret1 = parent.fileChooserTo.showDialog(null, "Выбрать папку...");
+             int ret1 = parent.fileChooserTo.showDialog(null, "Выбрать папку...");
 
             // Если указано место для копирования, то прописать путь к директории, в поле edit2
             if (ret1 == JFileChooser.APPROVE_OPTION) {
